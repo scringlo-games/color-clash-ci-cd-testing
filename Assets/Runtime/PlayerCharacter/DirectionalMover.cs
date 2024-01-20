@@ -49,7 +49,10 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
         private void FixedUpdate()
         {
             // We do this in FixedUpdate to make sure that we are respecting Unity's physics time step and so we don't
-            // get weird framerate-dependent speed changes.
+            // get weird framerate-dependent speed changes. You might also notice that we are moving the Rigidbody2D
+            // position directly rather than relying on its own velocity mechanisms. This is so that we can maintain
+            // tight control over *how* this character moves while still leveraging all of the built-in collision
+            // handling from Unity's 2D physics system.
             this.rigidbody2D.MovePosition(this.rigidbody2D.position + this.Velocity * Time.fixedDeltaTime);
         }
 
