@@ -442,6 +442,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4433451851647207252, guid: fc366e7442b42e24b8afda7bb3bafb78, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1948601244}
+    - target: {fileID: 4433451851647207252, guid: fc366e7442b42e24b8afda7bb3bafb78, type: 3}
+      propertyPath: m_DefaultActionMap
+      value: Gameplay
+      objectReference: {fileID: 0}
+    - target: {fileID: 4433451851647207252, guid: fc366e7442b42e24b8afda7bb3bafb78, type: 3}
+      propertyPath: m_DefaultControlScheme
+      value: KeyboardAndMouse
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
