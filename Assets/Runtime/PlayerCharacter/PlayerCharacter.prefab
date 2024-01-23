@@ -187,9 +187,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 082e91a3369b4da49e69df726ef33a59, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  accelerationIncrement: 0.25
+  accelerationIncrement: 10
   speedCeiling: 10
-  friction: 0.025
+  friction: 0.5
   rigidbody2D: {fileID: 8195816944216508985}
 --- !u!114 &1289790963788491268
 MonoBehaviour:
