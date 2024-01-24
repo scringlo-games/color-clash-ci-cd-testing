@@ -1,4 +1,3 @@
-using System;
 using ScringloGames.ColorClash.Runtime.Input;
 using UnityEngine;
 using UnityEngine.InputSystem;
