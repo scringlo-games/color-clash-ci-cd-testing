@@ -15,10 +15,10 @@ public class HealthHandler : MonoBehaviour
     void Update()
     {
         // Used to test damage system
-        // if (Input.GetKeyDown(KeyCode.F))
-        // {
-        //     DealDamage(10);
-        // }
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+             DealDamage(10);
+        }
     }
     void Start()
     {
@@ -40,6 +40,7 @@ public class HealthHandler : MonoBehaviour
     {
         //adds health to the health variable
         this.health += addHealth;
+        currentHealth?.Invoke(this.health);
     }
 
 }
