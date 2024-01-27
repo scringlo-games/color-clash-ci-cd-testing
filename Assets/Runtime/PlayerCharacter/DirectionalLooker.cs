@@ -1,6 +1,4 @@
 ﻿using UnityEngine;
-using Quaternion = UnityEngine.Quaternion;
-using Vector2 = UnityEngine.Vector2;
 
 namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
 {

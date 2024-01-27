@@ -237,6 +237,8 @@ GameObject:
   - component: {fileID: 1364965467275857641}
   - component: {fileID: 8195816944216508985}
   - component: {fileID: 8148909784622037114}
+  - component: {fileID: 2037178647397054630}
+  - component: {fileID: 622157033376170197}
   m_Layer: 0
   m_Name: PlayerCharacter
   m_TagString: Untagged
@@ -418,6 +420,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transformsToDetach:
   - {fileID: 4135795744804194696}
+--- !u!114 &2037178647397054630
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639860555464208467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f0bf49aa14f38a478abda440c8303d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthHandler: {fileID: 622157033376170197}
+--- !u!114 &622157033376170197
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1639860555464208467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a16b087238c1d47b9e4c3f4c692a81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <MaxHealth>k__BackingField: 100
 --- !u!1 &6509504327895779395
 GameObject:
   m_ObjectHideFlags: 0
