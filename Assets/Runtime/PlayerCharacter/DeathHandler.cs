@@ -7,24 +7,24 @@ public class DeathHandler : MonoBehaviour
 {
     [field: SerializeField]
     public HealthHandler healthScript {get; private set;}
-    public static event Action characterKilled;
-    // Start is called before the first frame update
+    public event Action OnKilled;
     void OnEnable()
     {  
-        HealthHandler.currentHealth += Kill;
+        healthScript.OnHealthChanged += Kill;
     }
     void OnDisable()
     {
-        HealthHandler.currentHealth -= Kill;
+        healthScript.OnHealthChanged -= Kill;
         
     }
+    //Checks if health is below or equal to zero, then invokes the 'OnKilled' event if the condition is met.
     void Kill(int health)
     {
         string thisName = this.name;
         Debug.Log($"Health: {health}");
         if (health <= 0)
         {
-            characterKilled?.Invoke();
+            OnKilled?.Invoke();
             Debug.Log($"{thisName} Killed");
         }
     }

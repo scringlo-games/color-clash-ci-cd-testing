@@ -5,25 +5,24 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HealthDisplay : MonoBehaviour
-{
-    public HealthHandler health;
-    public Image healthIndicator;
+{   [field:SerializeField]
+    public HealthHandler health {get; private  set;}
+    [SerializeField]
+    private Image healthIndicator;
     void OnEnable()
     {
-        HealthHandler.currentHealth += HealthVisual;
+        health.OnHealthChanged += HealthVisual;
     }
     void OnDisable()
     {
-        HealthHandler.currentHealth -= HealthVisual;
+        health.OnHealthChanged -= HealthVisual;
     }
+    //divides the current health by max health to return a float value between 0 - 1. This value is then used to 
+    //set the fill amount of the indicator image.
     void HealthVisual(int amount)
     {
         float fill = (float)amount/(float)health.maxHealth;
         Debug.Log($"health: {amount} maxHealth: {health.maxHealth} fill %: {fill}");
         healthIndicator.fillAmount = fill;
-        // Debug.Log($"Max Width: {maxWidth}");
-        // Debug.Log($"health increment amount{healthIncrement}");
-        // Debug.Log($"X: {width},Y: {height}");
-       
     }
 }

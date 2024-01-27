@@ -408,6 +408,10 @@ PrefabInstance:
       propertyPath: health
       value: 
       objectReference: {fileID: 2095275610}
+    - target: {fileID: 673271436998176325, guid: bc55ba984099eb54b99e87b4490a1b59, type: 3}
+      propertyPath: <health>k__BackingField
+      value: 
+      objectReference: {fileID: 2095275610}
     - target: {fileID: 2477163601732672019, guid: bc55ba984099eb54b99e87b4490a1b59, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -491,6 +495,10 @@ PrefabInstance:
     - target: {fileID: 2849130973532563044, guid: bc55ba984099eb54b99e87b4490a1b59, type: 3}
       propertyPath: m_Name
       value: HUD
+      objectReference: {fileID: 0}
+    - target: {fileID: 7784269641520553577, guid: bc55ba984099eb54b99e87b4490a1b59, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
