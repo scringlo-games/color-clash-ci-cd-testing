@@ -10,6 +10,9 @@ public class HealthHandler : MonoBehaviour
     public int maxHealth {get; private set;} = 100;
     public event Action<int> OnHealthChanged;
     
+    
+    
+  
     void Start()
     {
         //sets health to max health on the first frame of the player existing. 
