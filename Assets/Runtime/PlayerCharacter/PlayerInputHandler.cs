@@ -1,7 +1,8 @@
-using System;
 using ScringloGames.ColorClash.Runtime.Input;
+using ScringloGames.ColorClash.Runtime.WeaponSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
 {
@@ -17,6 +18,9 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
         private DirectionalMover mover;
         [SerializeField]
         private DirectionalLooker looker;
+        [SerializeField]
+        private AttackBehavior attackBehavior;
+        
         private GameInput gameInput;
 
         private void Awake()
@@ -31,8 +35,10 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
             this.gameInput.Gameplay.Move.performed += this.OnMovePerformed;
             this.gameInput.Gameplay.Move.canceled += this.OnMoveCancelled;
             this.gameInput.Gameplay.Look.performed += this.OnLookPerformed;
+            this.gameInput.Gameplay.Fire.performed += this.OnFirePerformed;
+            this.gameInput.Gameplay.Fire.canceled += this.OnFireCanceled;
         }
-
+        
         private void OnDisable()
         {
             this.gameInput.Gameplay.Disable();
@@ -58,6 +64,17 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
             
             this.mover.IsAccelerating = false;
             this.mover.StopAccelerating();
+        }
+
+        private void OnFirePerformed(InputAction.CallbackContext context)
+        {
+            Debug.Log("heeh you shooted!");
+            this.attackBehavior.Attack(true);
+        }
+        
+        private void OnFireCanceled(InputAction.CallbackContext obj)
+        {
+            this.attackBehavior.Attack(false);
         }
         
         private void OnLookPerformed(InputAction.CallbackContext context)
