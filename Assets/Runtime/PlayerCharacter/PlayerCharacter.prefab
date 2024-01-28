@@ -218,7 +218,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1639860555464208467
@@ -361,7 +361,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639860555464208467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 082e91a3369b4da49e69df726ef33a59, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e18835b54877c142868352d9172b409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   accelerationIncrement: 10
@@ -377,7 +377,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639860555464208467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d20d31575f954848becdd82e29dc9a70, type: 3}
+  m_Script: {fileID: 11500000, guid: b190824b7d1d26348be68fcbf9dce739, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!58 &1364965467275857641
@@ -465,7 +465,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639860555464208467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f0bf49aa14f38a478abda440c8303d7, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ef31c416bc450544b1cc72492c9dff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   healthHandler: {fileID: 622157033376170197}
@@ -478,7 +478,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1639860555464208467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00a16b087238c1d47b9e4c3f4c692a81, type: 3}
+  m_Script: {fileID: 11500000, guid: 1476e32dd06a36f4fb2177fc5f367cd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 100
@@ -596,6 +596,6 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
