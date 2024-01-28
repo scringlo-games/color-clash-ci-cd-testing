@@ -1,12 +1,10 @@
-﻿using System;
-using UnityEngine;
-using UnityEngine.Serialization;
+﻿using UnityEngine;
 
 /*
  * Activates Projectile Launcher on a timer
  */
 
-namespace ScringloGames.ColorClash.Runtime.WeaponSystem
+namespace ScringloGames.ColorClash.Runtime.Weapons
 {
     public class AttackBehavior : MonoBehaviour
     {

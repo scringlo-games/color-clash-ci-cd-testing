@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
+namespace ScringloGames.ColorClash.Runtime.Movement
 {
     /// <summary>
     /// Responsible for interfacing between the thing telling it to move and the actual mechanism for moving

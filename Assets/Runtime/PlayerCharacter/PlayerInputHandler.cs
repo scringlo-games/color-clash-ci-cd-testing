@@ -1,5 +1,7 @@
+using ScringloGames.ColorClash.Runtime.Aiming;
 using ScringloGames.ColorClash.Runtime.Input;
-using ScringloGames.ColorClash.Runtime.WeaponSystem;
+using ScringloGames.ColorClash.Runtime.Movement;
+using ScringloGames.ColorClash.Runtime.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
@@ -68,7 +70,6 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
 
         private void OnFirePerformed(InputAction.CallbackContext context)
         {
-            Debug.Log("heeh you shooted!");
             this.attackBehavior.Attack(true);
         }
         

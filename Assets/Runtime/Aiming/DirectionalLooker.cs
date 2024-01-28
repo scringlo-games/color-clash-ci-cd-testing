@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
+namespace ScringloGames.ColorClash.Runtime.Aiming
 {
     public class DirectionalLooker : MonoBehaviour
     {

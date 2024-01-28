@@ -1,7 +1,8 @@
 using System;
+using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
+namespace ScringloGames.ColorClash.Runtime.Death
 {
     public class DeathHandler : MonoBehaviour
     {

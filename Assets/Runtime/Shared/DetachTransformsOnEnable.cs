@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
+namespace ScringloGames.ColorClash.Runtime.Shared
 {
     public class DetachTransformsOnEnable : MonoBehaviour
     {

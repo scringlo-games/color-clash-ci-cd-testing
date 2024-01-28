@@ -15,20 +15,20 @@ public class ScreenSpaceFollow : MonoBehaviour
     private float offsetX;
     [SerializeField]
     private float offsetY;
-    void Start()
+
+    private void Start()
     {
         //assigns the RectTransform component on 'this' to the 'thisObj' variable
-        thisObj = GetComponent<RectTransform>();
-        Debug.Log(thisObj);
-
+        this.thisObj = this.GetComponent<RectTransform>();
+        Debug.Log(this.thisObj);
     }
-    void Update()
+
+    private void Update()
     {
         //finds the screen pos of 'Object To Follow', then sets the position of 'this' to that screen position
-        UnityEngine.Vector3 screenPos = mainCamera.WorldToScreenPoint(objectToFollow.position);
-        screenPos.y += offsetY;
-        screenPos.x += offsetX;
-        thisObj.position = screenPos;
+        var screenPos = this.mainCamera.WorldToScreenPoint(this.objectToFollow.position);
+        screenPos.y += this.offsetY;
+        screenPos.x += this.offsetX;
+        this.thisObj.position = screenPos;
     }
-
 }

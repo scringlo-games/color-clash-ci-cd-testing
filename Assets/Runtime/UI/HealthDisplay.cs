@@ -1,7 +1,8 @@
+using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
+namespace ScringloGames.ColorClash.Runtime.UI
 {
     public class HealthDisplay : MonoBehaviour
     {

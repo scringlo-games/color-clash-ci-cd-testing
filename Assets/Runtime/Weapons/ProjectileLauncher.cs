@@ -4,7 +4,7 @@ using UnityEngine;
  * Fires given object, with a public velocity, distance from origin and cooldown, up.
  */
 
-namespace ScringloGames.ColorClash.Runtime.WeaponSystem
+namespace ScringloGames.ColorClash.Runtime.Weapons
 {
     public class ProjectileLauncher : MonoBehaviour
     {

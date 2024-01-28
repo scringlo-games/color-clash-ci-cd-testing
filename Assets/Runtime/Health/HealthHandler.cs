@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
+namespace ScringloGames.ColorClash.Runtime.Health
 {
     public class HealthHandler : MonoBehaviour
     {
