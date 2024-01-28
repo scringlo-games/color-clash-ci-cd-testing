@@ -23,7 +23,7 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
         //set the fill amount of the indicator image.
         private void HealthVisual(int amount)
         {
-            float fill = (float)amount/(float)this.healthHandler.MaxHealth;
+            var fill = (float)amount/(float)this.healthHandler.MaxHealth;
             this.healthImageComponent.fillAmount = fill;
         }
     }
