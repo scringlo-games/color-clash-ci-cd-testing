@@ -171,3 +171,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69499f022d9045a4a920ecc2d868cb03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tag: Enemy
+  damage: 15

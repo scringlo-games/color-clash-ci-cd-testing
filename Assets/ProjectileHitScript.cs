@@ -1,16 +1,21 @@
+using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
 public class ProjectileHitScript : MonoBehaviour
 {
-    // Start is called before the first frame update
-    private void Start()
-    {
-        
-    }
+    [SerializeField] private new string tag;
+    [SerializeField] private int damage;
 
-    // Update is called once per frame
-    private void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
+        if (collision.collider.CompareTag(this.tag))
+        {
+            var healthHandler = collision.collider.GetComponent<HealthHandler>();
+            if (healthHandler != null)
+            {
+                healthHandler.TakeDamage(this.damage);
+            }
+        }
+        Destroy(this.gameObject);
     }
 }

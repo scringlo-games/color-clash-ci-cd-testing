@@ -20,7 +20,6 @@ public class ScreenSpaceFollow : MonoBehaviour
     {
         //assigns the RectTransform component on 'this' to the 'thisObj' variable
         this.thisObj = this.GetComponent<RectTransform>();
-        Debug.Log(this.thisObj);
     }
 
     private void Update()
