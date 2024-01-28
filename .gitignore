@@ -76,3 +76,7 @@ crashlytics-build.properties
 **/[Ss]cenes/[Tt]ravis.unity
 **/[Ss]cenes/[Ll]ance.unity
 **/[Ss]cenes/[Tt]yler.unity
+**/[Ss]cenes/[Pp]rototype.unity.meta
+**/[Ss]cenes/[Tt]ravis.unity.meta
+**/[Ss]cenes/[Ll]ance.unity.meta
+**/[Ss]cenes/[Tt]yler.unity.meta
