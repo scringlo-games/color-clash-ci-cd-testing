@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Conditions
@@ -10,6 +11,13 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
     /// </summary>
     public class ConditionBank : MonoBehaviour
     {
+        private List<Condition> conditions;
+
+        /// <summary>
+        /// The conditions that are currently active.
+        /// </summary>
+        public IEnumerable<Condition> Conditions => this.conditions;
+
         /// <summary>
         /// Applies the specified condition to this entity.
         /// </summary>
