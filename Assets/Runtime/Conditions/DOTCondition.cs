@@ -14,8 +14,17 @@ namespace ScringloGames.ColorClash.Runtime
         /// <summary>
         /// Damage dealt per tick
         /// </summary>
-        [SerializeField] private float DamageMult = 1;
+        private float DamageMult;
         private HealthHandler AffectedHealth;
+        
+        /// <summary>
+        /// Creates instance of DOTCondition
+        /// </summary>
+        /// <param name="damageMult">Damage multiplier per tick.</param>
+        public DOTCondition(float damageMult)
+        {
+            DamageMult = damageMult;
+        }
         
         public override void OnApplied(ConditionBank bank)
         {
