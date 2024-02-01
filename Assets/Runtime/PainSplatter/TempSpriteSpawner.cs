@@ -12,22 +12,10 @@ namespace ScringloGames.ColorClash.Runtime
     public class TempSpriteSpawner : MonoBehaviour
     {
     
-        private Vector3 angle;
-        public GameObject spawnObj;
-        public ProjectileHitScript ProjectileHitScript;
+        private Vector3 angle = Random.rotation.eulerAngles;
+        [SerializeField] private GameObject spawnObj;
         private int spriteCount;
-        private float timeAlive;
-        
-        
-        void OnEnable()
-        {
-            ProjectileHitScript.OnDestroyGetPos += CreateNewSprite;
-        }
-        void OnDisable()
-        {
-            ProjectileHitScript.OnDestroyGetPos -= CreateNewSprite;
-        }
-        void CreateNewSprite(UnityEngine.Vector3 targetPos)
+        public void CreateNewSprite(UnityEngine.Vector3 targetPos)
         {
             /*creates a new instance of the given prefab, then finds the spriterenderer component on the prefab and increments the sorting 
             order by one, ensuring that paint decals are rendered in the correct order. */

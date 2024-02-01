@@ -8,7 +8,7 @@ namespace ScringloGames.ColorClash.Runtime.Shared
     {
         [SerializeField] private new string tag;
         [SerializeField] private int damage;
-        public event Action<UnityEngine.Vector3> OnDestroyGetPos;
+        [SerializeField] private TempSpriteSpawner tempSpawner;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -24,7 +24,7 @@ namespace ScringloGames.ColorClash.Runtime.Shared
         }
         void OnDestroy()
         {
-            OnDestroyGetPos?.Invoke(this.transform.position);
+            tempSpawner.CreateNewSprite(this.transform.position);
         }
     }
 }
