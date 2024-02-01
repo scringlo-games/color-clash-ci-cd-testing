@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using PlasticGui.WorkspaceWindow;
 using ScringloGames.ColorClash.Runtime.Shared;
 using UnityEngine;
+using ScringloGames.ColorClash.Runtime;
+using UnityEditor.SearchService;
+
 
 namespace ScringloGames.ColorClash.Runtime
 {
@@ -11,25 +14,27 @@ namespace ScringloGames.ColorClash.Runtime
     
         private Vector3 angle;
         public GameObject spawnObj;
-        public ProjectileHitScript
-        
+        public ProjectileHitScript ProjectileHitScript;
         private int spriteCount;
         private float timeAlive;
         
         
         void OnEnable()
         {
-            Spawner.SpawnSprite += OnNewSprite;
+            ProjectileHitScript.OnDestroyGetPos += CreateNewSprite;
         }
         void OnDisable()
         {
-            Spawner.SpawnSprite -= OnNewSprite;
+            ProjectileHitScript.OnDestroyGetPos -= CreateNewSprite;
         }
-        void OnNewSprite(UnityEngine.Vector3 targetPos)
+        void CreateNewSprite(UnityEngine.Vector3 targetPos)
         {
-           GameObject newObj = Instantiate(spawnObj,targetPos, Quaternion.Euler(angle));
-           newObj.GetComponent<SpriteRenderer>().sortingOrder = spriteCount++;
-           Debug.Log($"sprite count: {spriteCount}");
+            /*creates a new instance of the given prefab, then finds the spriterenderer component on the prefab and increments the sorting 
+            order by one, ensuring that paint decals are rendered in the correct order. */
+            GameObject newObj = Instantiate(spawnObj,targetPos, Quaternion.Euler(angle));
+            newObj.GetComponent<SpriteRenderer>().sortingOrder = spriteCount++;
+            Debug.Log($"decal pos: {newObj.transform.position}");
+            Debug.Log($"sprite count: {spriteCount}");
         }
     
     }

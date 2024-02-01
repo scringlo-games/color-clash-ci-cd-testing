@@ -1,3 +1,4 @@
+using System;
 using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ namespace ScringloGames.ColorClash.Runtime.Shared
     {
         [SerializeField] private new string tag;
         [SerializeField] private int damage;
+        public event Action<UnityEngine.Vector3> OnDestroyGetPos;
 
         private void OnCollisionEnter2D(Collision2D collision)
         {
@@ -19,6 +21,10 @@ namespace ScringloGames.ColorClash.Runtime.Shared
                 }
             }
             Destroy(this.gameObject);
+        }
+        void OnDestroy()
+        {
+            OnDestroyGetPos?.Invoke(this.transform.position);
         }
     }
 }

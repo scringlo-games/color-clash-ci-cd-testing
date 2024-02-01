@@ -8,7 +8,7 @@ namespace ScringloGames.ColorClash.Runtime
     public class PaintTester : MonoBehaviour
     {
         public Camera mainCamera;
-        public UnityEngine.Vector2 mousePos;
+        private UnityEngine.Vector2 mousePos;
         public event Action<UnityEngine.Vector3> SpawnSprite;
 
         void Update()
@@ -17,6 +17,7 @@ namespace ScringloGames.ColorClash.Runtime
             if (UnityEngine.Input.GetButtonDown("Fire1"))
             {
                 SpawnSprite?.Invoke(mainCamera.ScreenToWorldPoint(mousePos));
+                Debug.Log("test fired");
             }
         }
 
