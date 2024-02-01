@@ -1,5 +1,12 @@
 {
   "dependencies": {
+    "com.travisrfrench.common": {
+      "version": "https://github.com/frenchtr/common.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "3b4be3fcab59dfa7a601a470863be600b0faecce"
+    },
     "com.unity.2d.animation": {
       "version": "9.0.4",
       "depth": 1,
