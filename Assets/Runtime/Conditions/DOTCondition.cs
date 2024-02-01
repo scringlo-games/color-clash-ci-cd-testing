@@ -19,6 +19,7 @@ namespace ScringloGames.ColorClash.Runtime
         
         public override void OnApplied(ConditionBank bank)
         {
+            Debug.Log("Applied DOT");
             AffectedHealth = bank.GetComponent<HealthHandler>();
         }
 

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4461055838320126333}
   - component: {fileID: 1320828804346693861}
   - component: {fileID: 6338405461763328685}
-  - component: {fileID: 8846442401945808761}
   m_Layer: 0
   m_Name: PlayerProjectile
   m_TagString: Untagged
@@ -117,7 +116,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -173,16 +172,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tag: Enemy
-  damage: 15
---- !u!114 &8846442401945808761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6602228063636873149}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efc7b6227e8eb06499e7a5b91758b79a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  damage: 1
