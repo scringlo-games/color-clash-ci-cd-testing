@@ -9,6 +9,9 @@ namespace ScringloGames.ColorClash.Runtime.Weapons
         private GameObject[] projectiles;
         [SerializeField]
         private ProjectileLauncher launcher;
+        
+        public int CurrentIndex { get; private set; }
+        public event Action Swapped;
 
         public void SwapTo(int index)
         {
@@ -17,7 +20,9 @@ namespace ScringloGames.ColorClash.Runtime.Weapons
                 throw new IndexOutOfRangeException();
             }
             
+            this.CurrentIndex = index;
             this.launcher.ObjectToLaunch = this.projectiles[index];
+            this.Swapped?.Invoke();
         }
     }
 }
