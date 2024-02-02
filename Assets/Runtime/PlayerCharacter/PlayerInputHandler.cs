@@ -4,7 +4,6 @@ using ScringloGames.ColorClash.Runtime.Movement;
 using ScringloGames.ColorClash.Runtime.Weapons;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
 {
@@ -22,6 +21,8 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
         private DirectionalLooker looker;
         [SerializeField]
         private AttackBehavior attackBehavior;
+        [SerializeField]
+        private ProjectileSwapper swapper;
         
         private GameInput gameInput;
 
@@ -39,8 +40,11 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
             this.gameInput.Gameplay.Look.performed += this.OnLookPerformed;
             this.gameInput.Gameplay.Fire.performed += this.OnFirePerformed;
             this.gameInput.Gameplay.Fire.canceled += this.OnFireCanceled;
+            this.gameInput.Gameplay.UseWeapon1.performed += this.OnUseWeapon1Performed;
+            this.gameInput.Gameplay.UseWeapon2.performed += this.OnUseWeapon2Performed;
+            this.gameInput.Gameplay.UseWeapon3.performed += this.OnUseWeapon3Performed;
         }
-        
+
         private void OnDisable()
         {
             this.gameInput.Gameplay.Disable();
@@ -48,6 +52,9 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
             this.gameInput.Gameplay.Move.performed -= this.OnMovePerformed;
             this.gameInput.Gameplay.Move.canceled -= this.OnMoveCancelled;
             this.gameInput.Gameplay.Look.performed -= this.OnLookPerformed;
+            this.gameInput.Gameplay.UseWeapon1.performed -= this.OnUseWeapon1Performed;
+            this.gameInput.Gameplay.UseWeapon2.performed -= this.OnUseWeapon2Performed;
+            this.gameInput.Gameplay.UseWeapon3.performed -= this.OnUseWeapon3Performed;
         }
 
         private void OnMovePerformed(InputAction.CallbackContext context)
@@ -97,6 +104,21 @@ namespace ScringloGames.ColorClash.Runtime.PlayerCharacter
                 default:
                     break;
             }
+        }
+
+        private void OnUseWeapon1Performed(InputAction.CallbackContext context)
+        {
+            this.swapper.SwapTo(0);
+        }
+
+        private void OnUseWeapon2Performed(InputAction.CallbackContext context)
+        {
+            this.swapper.SwapTo(1);
+        }
+        
+        private void OnUseWeapon3Performed(InputAction.CallbackContext context)
+        {
+            this.swapper.SwapTo(2);
         }
     }
 }
