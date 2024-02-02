@@ -18,7 +18,14 @@ namespace ScringloGames.ColorClash.Runtime.Shared
                     healthHandler.TakeDamage(this.damage);
                 }
             }
-            Destroy(this.gameObject);
+            
+            // Is the other object we hit also a projectile? Is not, destroy this
+            var otherProjectile = collision.collider.GetComponent<ProjectileHitScript>();
+
+            if (otherProjectile == null)
+            {
+                Destroy(this.gameObject);
+            }
         }
     }
 }

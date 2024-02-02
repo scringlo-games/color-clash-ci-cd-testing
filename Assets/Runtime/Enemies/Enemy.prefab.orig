@@ -13,9 +13,13 @@ GameObject:
   - component: {fileID: 7844843105748569433}
   - component: {fileID: 2007922483361088555}
   - component: {fileID: -1980282604639567460}
+<<<<<<< HEAD:Assets/Runtime/Enemies/Enemy.prefab
   - component: {fileID: 4012127059948271221}
-  - component: {fileID: 8375541465815879914}
   - component: {fileID: 7448542892885639929}
+  - component: {fileID: 4018282533197349129}
+=======
+  - component: {fileID: 8375541465815879914}
+>>>>>>> bugfix/COLOR-43:Assets/Enemy.prefab
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -129,6 +133,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71f5036af2548828709de71ed179c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD:Assets/Runtime/Enemies/Enemy.prefab
   tickInterval: 1
 --- !u!114 &4012127059948271221
 MonoBehaviour:
@@ -144,7 +149,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MoveToTag: Player
   Velocity: 1
+--- !u!50 &7448542892885639929
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415491891751835744}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &4018282533197349129
+=======
 --- !u!58 &8375541465815879914
+>>>>>>> bugfix/COLOR-43:Assets/Enemy.prefab
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -179,33 +214,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!50 &7448542892885639929
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415491891751835744}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!1001 &377337252573765458
 PrefabInstance:
   m_ObjectHideFlags: 0
