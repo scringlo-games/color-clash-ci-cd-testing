@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 7996520611426451061}
   - component: {fileID: 4461055838320126333}
   - component: {fileID: 1320828804346693861}
-  - component: {fileID: 6338405461763328685}
+  - component: {fileID: 5605273476779186214}
+  - component: {fileID: 5718163473476276394}
   m_Layer: 0
   m_Name: PlayerProjectile
   m_TagString: Untagged
@@ -159,7 +160,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &6338405461763328685
+--- !u!114 &5605273476779186214
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,8 +169,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 6602228063636873149}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69499f022d9045a4a920ecc2d868cb03, type: 3}
+  m_Script: {fileID: 11500000, guid: efc7b6227e8eb06499e7a5b91758b79a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: Enemy
+--- !u!114 &5718163473476276394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6602228063636873149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ebaae68c6e8bd04c903fec4230a5598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   damage: 1

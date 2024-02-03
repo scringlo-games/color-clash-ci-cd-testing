@@ -1,23 +1,21 @@
-using ScringloGames.ColorClash.Runtime;
-using ScringloGames.ColorClash.Runtime.Conditions;
 using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
-public class ProjectileHitScript : MonoBehaviour
+public abstract class ProjectileHitScript : MonoBehaviour
 {
-    [SerializeField] private new string tag;
     [SerializeField] private int damage;
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    
+    public void OnCollisionEnter2D(Collision2D other)
     {
-        if (this.TryGetComponent(out ApplyDOTCondition applyDOT))
+        ApplyProjectileEffects(other.gameObject);
+    }
+
+    protected abstract void ApplyProjectileEffects(GameObject otherGameObject);
+
+    protected void DealDamageAndDestroy(GameObject obj)
+    {
+        if (obj.TryGetComponent<HealthHandler>(out HealthHandler healthHandler))
         {
-            applyDOT.ApplyTo(collision.gameObject);
-        }
-        
-        if (collision.collider.CompareTag(this.tag))
-        {
-            var healthHandler = collision.collider.GetComponent<HealthHandler>();
             if (healthHandler != null)
             {
                 healthHandler.TakeDamage(this.damage);
