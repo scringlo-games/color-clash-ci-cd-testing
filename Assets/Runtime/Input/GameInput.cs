@@ -55,6 +55,33 @@ namespace ScringloGames.ColorClash.Runtime.Input
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseWeapon1"",
+                    ""type"": ""Button"",
+                    ""id"": ""243b5605-0482-4950-aaac-ad901aa2bb3c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseWeapon2"",
+                    ""type"": ""Button"",
+                    ""id"": ""1017d9d0-278c-45b9-b76d-93393480b91f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseWeapon3"",
+                    ""type"": ""Button"",
+                    ""id"": ""27ea6c74-e014-48d4-84dc-f368112261ad"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -167,6 +194,72 @@ namespace ScringloGames.ColorClash.Runtime.Input
                     ""action"": ""Fire"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da21ec48-92dd-4b80-aa9e-c31f86e758fa"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseWeapon1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3edb2dd1-fb01-4916-bfea-b183dd52a965"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseWeapon1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""87f60524-9363-4ccb-9984-f4a5c4f83495"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseWeapon2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""56ef09de-6334-4644-8c88-046fd52ecc19"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseWeapon2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""785dc424-5b90-44b6-81e1-6d7b45f13db1"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseWeapon3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""027e4eb4-9c63-46e5-b48c-62cc61437aac"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseWeapon3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -206,6 +299,9 @@ namespace ScringloGames.ColorClash.Runtime.Input
             m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
             m_Gameplay_Look = m_Gameplay.FindAction("Look", throwIfNotFound: true);
             m_Gameplay_Fire = m_Gameplay.FindAction("Fire", throwIfNotFound: true);
+            m_Gameplay_UseWeapon1 = m_Gameplay.FindAction("UseWeapon1", throwIfNotFound: true);
+            m_Gameplay_UseWeapon2 = m_Gameplay.FindAction("UseWeapon2", throwIfNotFound: true);
+            m_Gameplay_UseWeapon3 = m_Gameplay.FindAction("UseWeapon3", throwIfNotFound: true);
         }
 
         public void Dispose()
@@ -270,6 +366,9 @@ namespace ScringloGames.ColorClash.Runtime.Input
         private readonly InputAction m_Gameplay_Move;
         private readonly InputAction m_Gameplay_Look;
         private readonly InputAction m_Gameplay_Fire;
+        private readonly InputAction m_Gameplay_UseWeapon1;
+        private readonly InputAction m_Gameplay_UseWeapon2;
+        private readonly InputAction m_Gameplay_UseWeapon3;
         public struct GameplayActions
         {
             private @GameInput m_Wrapper;
@@ -277,6 +376,9 @@ namespace ScringloGames.ColorClash.Runtime.Input
             public InputAction @Move => m_Wrapper.m_Gameplay_Move;
             public InputAction @Look => m_Wrapper.m_Gameplay_Look;
             public InputAction @Fire => m_Wrapper.m_Gameplay_Fire;
+            public InputAction @UseWeapon1 => m_Wrapper.m_Gameplay_UseWeapon1;
+            public InputAction @UseWeapon2 => m_Wrapper.m_Gameplay_UseWeapon2;
+            public InputAction @UseWeapon3 => m_Wrapper.m_Gameplay_UseWeapon3;
             public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
             public void Enable() { Get().Enable(); }
             public void Disable() { Get().Disable(); }
@@ -295,6 +397,15 @@ namespace ScringloGames.ColorClash.Runtime.Input
                 @Fire.started += instance.OnFire;
                 @Fire.performed += instance.OnFire;
                 @Fire.canceled += instance.OnFire;
+                @UseWeapon1.started += instance.OnUseWeapon1;
+                @UseWeapon1.performed += instance.OnUseWeapon1;
+                @UseWeapon1.canceled += instance.OnUseWeapon1;
+                @UseWeapon2.started += instance.OnUseWeapon2;
+                @UseWeapon2.performed += instance.OnUseWeapon2;
+                @UseWeapon2.canceled += instance.OnUseWeapon2;
+                @UseWeapon3.started += instance.OnUseWeapon3;
+                @UseWeapon3.performed += instance.OnUseWeapon3;
+                @UseWeapon3.canceled += instance.OnUseWeapon3;
             }
 
             private void UnregisterCallbacks(IGameplayActions instance)
@@ -308,6 +419,15 @@ namespace ScringloGames.ColorClash.Runtime.Input
                 @Fire.started -= instance.OnFire;
                 @Fire.performed -= instance.OnFire;
                 @Fire.canceled -= instance.OnFire;
+                @UseWeapon1.started -= instance.OnUseWeapon1;
+                @UseWeapon1.performed -= instance.OnUseWeapon1;
+                @UseWeapon1.canceled -= instance.OnUseWeapon1;
+                @UseWeapon2.started -= instance.OnUseWeapon2;
+                @UseWeapon2.performed -= instance.OnUseWeapon2;
+                @UseWeapon2.canceled -= instance.OnUseWeapon2;
+                @UseWeapon3.started -= instance.OnUseWeapon3;
+                @UseWeapon3.performed -= instance.OnUseWeapon3;
+                @UseWeapon3.canceled -= instance.OnUseWeapon3;
             }
 
             public void RemoveCallbacks(IGameplayActions instance)
@@ -348,6 +468,9 @@ namespace ScringloGames.ColorClash.Runtime.Input
             void OnMove(InputAction.CallbackContext context);
             void OnLook(InputAction.CallbackContext context);
             void OnFire(InputAction.CallbackContext context);
+            void OnUseWeapon1(InputAction.CallbackContext context);
+            void OnUseWeapon2(InputAction.CallbackContext context);
+            void OnUseWeapon3(InputAction.CallbackContext context);
         }
     }
 }
