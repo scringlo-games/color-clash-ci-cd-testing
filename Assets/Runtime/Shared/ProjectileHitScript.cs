@@ -1,5 +1,7 @@
 using ScringloGames.ColorClash.Runtime.Conditions;
 using ScringloGames.ColorClash.Runtime.Health;
+using ScringloGames.ColorClash.Runtime.PlayerCharacter;
+using UnityEditor.Build;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Shared
@@ -11,6 +13,12 @@ namespace ScringloGames.ColorClash.Runtime.Shared
     {
         public void OnCollisionEnter2D(Collision2D other)
         {
+            //We don't want paint hurting the player.
+            if (other.gameObject.GetComponent<PlayerInputHandler>() != null)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
             //If it can take effects or damage, projectiles should affect it.
             if (other.gameObject.GetComponent<ConditionBank>() != null) 
             {
