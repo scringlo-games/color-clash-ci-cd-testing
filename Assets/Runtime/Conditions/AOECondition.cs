@@ -11,6 +11,7 @@ namespace ScringloGames.ColorClash.Runtime
 {
     public class AOECondition : Condition
     {   private float AOERadius = 2f;
+        private bool hasCond;
         
         public override void OnApplied(ConditionBank bank)
         {
@@ -26,11 +27,12 @@ namespace ScringloGames.ColorClash.Runtime
 
             //foreach loop goes through each collider found, checks for if each object has a ConditionBank component, if it does,
             //then it stores that bank in a variable, and then checks the list of conditions that the ConditionBank has.
-        Point:
+        
             foreach(Collider2D target in colliders)
             {
                 if(target.GetComponent<ConditionBank>() != null)
                 {
+                    hasCond = false;
                     ConditionBank targetBank = target.GetComponent<ConditionBank>();
                     foreach(Condition targetCond in targetBank.Conditions)
                     {
@@ -38,14 +40,17 @@ namespace ScringloGames.ColorClash.Runtime
                         //and start checking the next object in the list.
                         if(targetCond is AOECondition)
                         {
-                            goto Point;
+                            hasCond = true;
                         }
                     } 
                     //if none of the conditions on the current ConditiobBank are the AOECondition, this foreach loop will apply
                     //all of the conditions on THIS object onto the ConditionBank of the next object. 
-                    foreach(Condition thisCond in bank.Conditions)
+                    if(!hasCond)
                     {
-                        targetBank.Apply(thisCond);
+                        foreach(Condition thisCond in bank.Conditions)
+                        {
+                            targetBank.Apply(thisCond);
+                        }
                     }
                 }
             }
