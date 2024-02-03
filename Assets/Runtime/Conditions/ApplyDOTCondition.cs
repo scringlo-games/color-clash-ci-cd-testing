@@ -12,11 +12,15 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         /// If object has a bank, applies DOT.
         /// </summary>
         /// <param name="obj">The object that receives condition</param>
-        public void ApplyTo(GameObject obj, float damage)
+        public void ApplyTo(GameObject obj, float damage, float duration)
         {
             if (obj.TryGetComponent<ConditionBank>(out ConditionBank bank))
             {
-                bank.Apply(new DOTCondition(damage));
+                var condition = new DOTCondition(damage)
+                {
+                    Duration = duration,
+                };
+                bank.Apply(condition);
             }
         }
     }

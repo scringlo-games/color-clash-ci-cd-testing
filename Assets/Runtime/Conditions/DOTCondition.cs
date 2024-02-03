@@ -1,5 +1,4 @@
 using ScringloGames.ColorClash.Runtime.Health;
-using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Conditions
 {
@@ -14,6 +13,7 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         private float Damage;
         private HealthHandler AffectedHealth;
         
+        
         /// <summary>
         /// Creates instance of DOTCondition
         /// </summary>
@@ -25,7 +25,6 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         
         public override void OnApplied(ConditionBank bank)
         {
-            Debug.Log("Applied DOT");
             this.AffectedHealth = bank.GetComponent<HealthHandler>();
         }
 

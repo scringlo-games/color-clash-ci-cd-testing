@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.Serialization;
 
 /*
  * Fires given object, with a public velocity, distance from origin and cooldown, up.

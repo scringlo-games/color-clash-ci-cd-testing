@@ -1,4 +1,5 @@
 using ScringloGames.ColorClash.Runtime.Conditions;
+using ScringloGames.ColorClash.Runtime.Health;
 using ScringloGames.ColorClash.Runtime.Shared;
 using UnityEngine;
 
@@ -10,15 +11,26 @@ namespace ScringloGames.ColorClash.Runtime.Weapons
     /// </summary>
     public class DOTProjectile : ProjectileHitScript
     {
-        private float conditionDamage = 1;
+        [SerializeField] private float conditionDamage = 1;
+        [SerializeField] private int hitDamage = 1;
+        [SerializeField] private float duration = 2.0f;
         
         protected override void ApplyProjectileEffects(GameObject otherGameObject)
         {
             if (this.gameObject.TryGetComponent(out ApplyDOTCondition condition))
             {
-                condition.ApplyTo(otherGameObject, this.conditionDamage);
+                condition.ApplyTo(otherGameObject, this.conditionDamage, duration);
             }
-            this.DealDamageAndDestroy(otherGameObject);
+            // We don't want projectiles destroying projectiles, if they can collide.
+            if (otherGameObject.GetComponent<ProjectileHitScript>() == null)
+            {
+                Destroy(this.gameObject);
+            }
+        }
+
+        protected override void IfHasHealth(GameObject otherGameObject)
+        {
+            otherGameObject.GetComponent<HealthHandler>().TakeDamage(hitDamage);
         }
     }
 }

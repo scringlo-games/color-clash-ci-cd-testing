@@ -1,37 +1,42 @@
+using ScringloGames.ColorClash.Runtime.Conditions;
 using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Shared
 {
+    /// <summary>
+    /// Damageless projectile abstract. Customize by overriding ApplyProjectileEffect.
+    /// </summary>
     public abstract class ProjectileHitScript : MonoBehaviour
     {
-        [SerializeField] private int damage;
-    
         public void OnCollisionEnter2D(Collision2D other)
         {
-            this.ApplyProjectileEffects(other.gameObject);
-        }
-
-        protected abstract void ApplyProjectileEffects(GameObject otherGameObject);
-
-        protected void DealDamageAndDestroy(GameObject obj)
-        {
-            if (obj.TryGetComponent<HealthHandler>(out HealthHandler healthHandler))
+            //If it can take effects or damage, projectiles should affect it.
+            if (other.gameObject.GetComponent<ConditionBank>() != null) 
             {
-                if (healthHandler != null)
-                {
-                    healthHandler.TakeDamage(this.damage);
-                }
-            
-                // Is the other object we hit also a projectile? Is not, destroy this
-                var otherProjectile = collision.collider.GetComponent<ProjectileHitScript>();
-
-                if (otherProjectile == null)
-                {
-                    Destroy(this.gameObject);
-                }
+                this.ApplyProjectileEffects(other.gameObject);
             }
-            Destroy(this.gameObject);
+
+            if (other.gameObject.GetComponent<HealthHandler>() != null)
+            {
+                this.IfHasHealth(other.gameObject);
+            }
+            
+            if (other.gameObject.GetComponent<ProjectileHitScript>() == null)
+            {
+                Destroy(this.gameObject); 
+            }
         }
+        /// <summary>
+        /// Override with projectile effects.
+        /// </summary>
+        /// <param name="otherGameObject">What this affects.</param>
+        protected abstract void ApplyProjectileEffects(GameObject otherGameObject);
+        
+        /// <summary>
+        /// Override.
+        /// </summary>
+        /// <param name="otherGameObject">What this affects.</param>
+        protected abstract void IfHasHealth(GameObject otherGameObject);
     }
 }

@@ -306,6 +306,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHealthCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5385962593210355355, guid: 1f7fac35aa06d1747afaec883bed1c87, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
