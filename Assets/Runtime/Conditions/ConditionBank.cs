@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using TravisRFrench.Common.Runtime.Timing;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Conditions
@@ -11,10 +13,15 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
     /// </summary>
     public class ConditionBank : MonoBehaviour
     {
+        [SerializeField]
+        private float tickInterval;
+        private List<Condition> conditions;
+        private Countdown countdown;
+        
         /// <summary>
         /// The conditions that are currently active.
         /// </summary>
-        public IEnumerable<Condition> Conditions => throw new NotImplementedException();
+        public IEnumerable<Condition> Conditions => this.conditions;
 
         /// <summary>
         /// Applies the specified condition to this entity.
@@ -23,7 +30,63 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         /// <exception cref="NotImplementedException"></exception>
         public void Apply(Condition condition)
         {
-            throw new NotImplementedException();
+            this.conditions.Add(condition);
+            condition.OnApplied(this);
+        }
+
+        private void Awake()
+        {
+            this.conditions = new List<Condition>();
+            this.countdown = new Countdown(this.tickInterval);
+        }
+
+        private void OnEnable()
+        {
+            this.countdown.Elapsed += this.OnCountdownElapsed;
+            
+            this.countdown.Start();
+        }
+
+        private void OnDisable()
+        {
+            this.countdown.Elapsed -= this.OnCountdownElapsed;
+            
+            this.countdown.Stop();
+        }
+
+        private void Update()
+        {
+            // Update the countdown
+            this.countdown.Tick(Time.deltaTime);
+            
+            // Update the time of all conditions
+            foreach (var condition in this.conditions)
+            {
+                var increment = condition.Time + Time.deltaTime;
+                condition.Time = Mathf.Clamp(increment, 0f, condition.Duration);
+            }
+            
+            // Find all conditions that have exceeded their duration and expire them
+            var conditionsToExpire = this.conditions
+                .Where(c => c.Time >= c.Duration)
+                .ToList();
+
+            foreach (var condition in conditionsToExpire)
+            {
+                condition.OnExpired(this);
+                this.conditions.Remove(condition);
+            }
+        }
+
+        private void OnCountdownElapsed(ICountdown count)
+        {
+            foreach (var condition in this.conditions)
+            {
+                condition.OnTicked(this, Time.deltaTime);
+            }
+            
+            count.Reset();
+            count.Restart();
         }
     }
 }

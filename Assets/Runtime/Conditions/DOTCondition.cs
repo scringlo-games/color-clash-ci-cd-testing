@@ -1,8 +1,7 @@
-using ScringloGames.ColorClash.Runtime.Conditions;
 using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime
+namespace ScringloGames.ColorClash.Runtime.Conditions
 {
     /// <summary>
     /// Applies Damage Over Time to affected object.
@@ -21,18 +20,18 @@ namespace ScringloGames.ColorClash.Runtime
         /// <param name="damage">Damage per tick.</param>
         public DOTCondition(float damage)
         {
-            Damage = damage;
+            this.Damage = damage;
         }
         
         public override void OnApplied(ConditionBank bank)
         {
             Debug.Log("Applied DOT");
-            AffectedHealth = bank.GetComponent<HealthHandler>();
+            this.AffectedHealth = bank.GetComponent<HealthHandler>();
         }
 
         public override void OnTicked(ConditionBank bank, float deltaTime)
         {
-            AffectedHealth.TakeDamage((int)Damage);
+            this.AffectedHealth.TakeDamage((int)this.Damage);
         }
     }
 }

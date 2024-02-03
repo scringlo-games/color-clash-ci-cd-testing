@@ -15,7 +15,7 @@
         /// The remaining time for which the condition will continue to be active. This will be initialized at Duration
         /// and decremented every frame. When this value reaches zero, the condition will be automatically removed.
         /// </summary>
-        public float Time { get; protected set; }
+        public float Time { get; set; }
         
         protected Condition()
         {

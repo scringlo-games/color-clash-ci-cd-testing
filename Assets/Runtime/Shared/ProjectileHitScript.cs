@@ -1,26 +1,37 @@
 using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
-public abstract class ProjectileHitScript : MonoBehaviour
+namespace ScringloGames.ColorClash.Runtime.Shared
 {
-    [SerializeField] private int damage;
+    public abstract class ProjectileHitScript : MonoBehaviour
+    {
+        [SerializeField] private int damage;
     
-    public void OnCollisionEnter2D(Collision2D other)
-    {
-        ApplyProjectileEffects(other.gameObject);
-    }
-
-    protected abstract void ApplyProjectileEffects(GameObject otherGameObject);
-
-    protected void DealDamageAndDestroy(GameObject obj)
-    {
-        if (obj.TryGetComponent<HealthHandler>(out HealthHandler healthHandler))
+        public void OnCollisionEnter2D(Collision2D other)
         {
-            if (healthHandler != null)
-            {
-                healthHandler.TakeDamage(this.damage);
-            }
+            this.ApplyProjectileEffects(other.gameObject);
         }
-        Destroy(this.gameObject);
+
+        protected abstract void ApplyProjectileEffects(GameObject otherGameObject);
+
+        protected void DealDamageAndDestroy(GameObject obj)
+        {
+            if (obj.TryGetComponent<HealthHandler>(out HealthHandler healthHandler))
+            {
+                if (healthHandler != null)
+                {
+                    healthHandler.TakeDamage(this.damage);
+                }
+            
+                // Is the other object we hit also a projectile? Is not, destroy this
+                var otherProjectile = collision.collider.GetComponent<ProjectileHitScript>();
+
+                if (otherProjectile == null)
+                {
+                    Destroy(this.gameObject);
+                }
+            }
+            Destroy(this.gameObject);
+        }
     }
 }

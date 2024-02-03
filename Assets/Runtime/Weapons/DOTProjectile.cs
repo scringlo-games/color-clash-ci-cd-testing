@@ -1,9 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using ScringloGames.ColorClash.Runtime.Conditions;
+using ScringloGames.ColorClash.Runtime.Shared;
 using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime
+namespace ScringloGames.ColorClash.Runtime.Weapons
 {
     /// <summary>
     /// Makes self deal Damage
@@ -17,9 +16,9 @@ namespace ScringloGames.ColorClash.Runtime
         {
             if (this.gameObject.TryGetComponent(out ApplyDOTCondition condition))
             {
-                condition.ApplyTo(otherGameObject, conditionDamage);
+                condition.ApplyTo(otherGameObject, this.conditionDamage);
             }
-            DealDamageAndDestroy(otherGameObject);
+            this.DealDamageAndDestroy(otherGameObject);
         }
     }
 }
