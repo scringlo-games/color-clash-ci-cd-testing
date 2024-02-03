@@ -7,15 +7,18 @@ namespace ScringloGames.ColorClash.Runtime.Shared
     public class ResetSceneOnDeath : MonoBehaviour
     {
        public DeathHandler death;
-       void OnEnable()
+
+       private void OnEnable()
        {
             this.death.Killed += this.ResetScene;
        }
-       void OnDisable()
+
+       private void OnDisable()
        {
             this.death.Killed -= this.ResetScene;
        }
-       void ResetScene()
+
+       private void ResetScene()
        {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
        }

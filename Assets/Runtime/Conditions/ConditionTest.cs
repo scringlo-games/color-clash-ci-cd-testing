@@ -1,26 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using ScringloGames.ColorClash.Runtime.Conditions;
 using UnityEngine;
-using UnityEngine.InputSystem.EnhancedTouch;
 
-namespace ScringloGames.ColorClash.Runtime
+namespace ScringloGames.ColorClash.Runtime.Conditions
 {
     public class ConditionTest : MonoBehaviour
     {
         private AOECondition cond;
         private ConditionBank bank;
 
-        void Start()
+        private void Start()
         {
-            bank = this.GetComponent<ConditionBank>();
-            cond = new AOECondition();
+            this.bank = this.GetComponent<ConditionBank>();
+            this.cond = new AOECondition();
         }
-        void Update()
+
+        private void Update()
         {
             if(UnityEngine.Input.GetKeyDown(KeyCode.F))
             {
-                bank.Apply(cond);
+                this.bank.Apply(this.cond);
             }
         }
     }
