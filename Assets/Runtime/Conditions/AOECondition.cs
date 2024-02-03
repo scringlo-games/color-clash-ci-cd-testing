@@ -10,16 +10,16 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         public override void OnApplied(ConditionBank bank)
         {
             Debug.Log($"applied condition onto: {bank.name}");
-            //Sets the Duration of this condition to 2 seconds.
+            // Sets the Duration of this condition to 2 seconds.
             this.Duration = 2f;
 
-            //gets the position of the object that this conditionbank is on. 
+            // Gets the position of the object that this ConditionBank is on
             var thisPos = bank.transform.position;
 
-            //stores an array of Colliders within a radius of this object.
+            // Stores an array of Colliders within a radius of this object.
             var colliders = Physics2D.OverlapCircleAll(thisPos, this.radius);
 
-            //foreach loop goes through each collider found, checks for if each object has a ConditionBank component, if it does,
+            // Foreach loop goes through each collider found, checks for if each object has a ConditionBank component, if it does,
             //then it stores that bank in a variable, and then checks the list of conditions that the ConditionBank has.
         
             foreach (var target in colliders)
@@ -30,15 +30,15 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
                     var targetBank = target.GetComponent<ConditionBank>();
                     foreach (var targetCond in targetBank.Conditions)
                     {
-                        //if any of the conditions on the current ConditionBank are the AOECondtion, it will skip this object
+                        // If any of the conditions on the current ConditionBank are the AOECondtion, it will skip this object
                         //and start checking the next object in the list.
                         if (targetCond is AOECondition)
                         {
                             this.hasCond = true;
                         }
                     } 
-                    //if none of the conditions on the current ConditiobBank are the AOECondition, this foreach loop will apply
-                    //all of the conditions on THIS object onto the ConditionBank of the next object. 
+                    // If none of the conditions on the current ConditionBank are the AOECondition, this foreach loop will apply
+                    // all of the conditions on THIS object onto the ConditionBank of the next object. 
                     if (!this.hasCond)
                     {
                         foreach (var thisCond in bank.Conditions)

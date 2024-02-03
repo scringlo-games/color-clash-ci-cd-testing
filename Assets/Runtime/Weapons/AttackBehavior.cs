@@ -23,9 +23,9 @@ namespace ScringloGames.ColorClash.Runtime.Weapons
             this.timer = this.cooldownTimer;
         }
 
-        public void Attack(bool isFiring)
+        public void Attack(bool amIFiring)
         {
-            this.isFiring = isFiring;
+            this.isFiring = amIFiring;
         }
 
         private void Update()

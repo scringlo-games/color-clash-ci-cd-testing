@@ -1,4 +1,3 @@
-using System;
 using ScringloGames.ColorClash.Runtime.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
