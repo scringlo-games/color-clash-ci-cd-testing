@@ -1,4 +1,3 @@
-using UnityEditor.PackageManager;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Conditions
@@ -7,7 +6,6 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
     {
         private float slowPercent;
         private MoveToGameObject moveToGameObject;
-        public Color conditionColor = new Color(0, 0, 255, 255);
         
         //If percent is too big/small, clamp to reasonable range.
         public SlowCondition(float slowPercent)
