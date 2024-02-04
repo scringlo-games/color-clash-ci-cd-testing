@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ScringloGames.ColorClash.Runtime.Input;
 using TravisRFrench.Common.Runtime.Timing;
 using UnityEngine;
 
@@ -24,6 +25,15 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         public IEnumerable<Condition> Conditions => this.conditions;
 
         /// <summary>
+        /// Invoked when a condition was applied to this entity.
+        /// </summary>
+        public event Action<Condition> Applied;
+        /// <summary>
+        /// Invoked when a condition expires from this entity.
+        /// </summary>
+        public event Action<Condition> Expired;
+
+        /// <summary>
         /// Applies the specified condition to this entity.
         /// </summary>
         /// <param name="condition">The condition to be applied.</param>
@@ -32,6 +42,7 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         {
             this.conditions.Add(condition);
             condition.OnApplied(this);
+            this.Applied?.Invoke(condition);
         }
 
         private void Awake()
@@ -73,8 +84,9 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
 
             foreach (var condition in conditionsToExpire)
             {
-                condition.OnExpired(this);
                 this.conditions.Remove(condition);
+                condition.OnExpired(this);
+                this.Expired?.Invoke(condition);
             }
         }
 
