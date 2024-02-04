@@ -1,6 +1,4 @@
 using ScringloGames.ColorClash.Runtime.Health;
-using UnityEditor.Graphs;
-using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Conditions
 {
@@ -14,8 +12,6 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         /// </summary>
         private float Damage;
         private HealthHandler AffectedHealth;
-        public Color conditionColor = new Color(255,0,0,255);
-        
         
         /// <summary>
         /// Creates instance of DOTCondition
