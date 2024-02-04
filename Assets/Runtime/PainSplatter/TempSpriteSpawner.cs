@@ -16,7 +16,7 @@ namespace ScringloGames.ColorClash.Runtime
         [SerializeField] private GameObject spawnObj;
         private static int spriteCount;
 
-        void OnDestroy()
+        void OnDisable()
         {
             CreateNewSprite(this.transform.position);
         }
