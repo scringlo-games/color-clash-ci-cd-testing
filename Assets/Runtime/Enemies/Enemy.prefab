@@ -13,6 +13,10 @@ GameObject:
   - component: {fileID: 7844843105748569433}
   - component: {fileID: 2007922483361088555}
   - component: {fileID: -1980282604639567460}
+  - component: {fileID: 4012127059948271221}
+  - component: {fileID: 8375541465815879914}
+  - component: {fileID: 7448542892885639929}
+  - component: {fileID: 1920145557948646838}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -113,6 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ef31c416bc450544b1cc72492c9dff7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  destroyDelay: 0.05
   healthHandler: {fileID: 7844843105748569433}
 --- !u!114 &-1980282604639567460
 MonoBehaviour:
@@ -126,6 +131,101 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f71f5036af2548828709de71ed179c19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tickInterval: 1
+--- !u!114 &4012127059948271221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415491891751835744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cef0950df5e0a2f4d9633dd4c90d0bdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MoveToTag: Player
+  Velocity: 1
+--- !u!58 &8375541465815879914
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415491891751835744}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &7448542892885639929
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415491891751835744}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!114 &1920145557948646838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4415491891751835744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca3cea533d3f4141975b6bbbd897f26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  filter:
+    operation: 0
+    entries:
+    - filter: {fileID: 11400000, guid: 85015e956afc0684684557676bd228ed, type: 2}
+      negate: 1
+  damageToInflict: 15
 --- !u!1001 &377337252573765458
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,6 +326,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyHealthCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 5385962593210355355, guid: 1f7fac35aa06d1747afaec883bed1c87, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6447610360427181104, guid: 1f7fac35aa06d1747afaec883bed1c87, type: 3}
+      propertyPath: healthHandler
+      value: 
+      objectReference: {fileID: 7844843105748569433}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
