@@ -10,7 +10,7 @@ namespace ScringloGames.ColorClash.Runtime.Weapons
     {
         // Velocity
         [SerializeField] private float launchVelocity = 1.0f;
-
+        [SerializeField] private float pitchVariation = 0.5f;
         [SerializeField] private GameObject objectToLaunch;
         [SerializeField] private GameObject fireFrom;
 
@@ -22,6 +22,11 @@ namespace ScringloGames.ColorClash.Runtime.Weapons
 
         public void Launch()
         {
+            if (this.TryGetComponent(out AudioSource audioSource))
+            {
+                audioSource.pitch = (pitchVariation * Random.value) + 1.0f;
+                audioSource.Play();
+            }
             var newProjectile = 
                 Instantiate(this.objectToLaunch, this.fireFrom.transform.position, this.transform.rotation);
             Vector2 launchSpeed = this.transform.up * this.launchVelocity;

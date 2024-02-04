@@ -17,6 +17,10 @@ namespace ScringloGames.ColorClash.Runtime.Spawning
 
         private IEnumerator SpawnPrefab()
         {
+            if (this.TryGetComponent(out AudioSource audioSource))
+            {
+                audioSource.Play();
+            }
             Instantiate(this.prefabToSpawn, this.transform.position, Quaternion.identity, null);
 
             yield return new WaitForSeconds(this.interval);
