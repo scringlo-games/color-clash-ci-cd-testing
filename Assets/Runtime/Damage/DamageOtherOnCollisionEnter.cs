@@ -1,27 +1,31 @@
 ﻿using System;
 using ScringloGames.ColorClash.Runtime.Health;
+using ScringloGames.ColorClash.Runtime.Shared;
+using ScringloGames.ColorClash.Runtime.Shared.GameObjectFilters;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Damage
 {
-    public class InflictDamageOnCollisionEnter : MonoBehaviour
+    public class DamageOtherOnCollisionEnter : MonoBehaviour
     {
         [SerializeField]
-        private string tagFilter;
+        private GameObjectFilterSet filter;
         [SerializeField]
+        [Tooltip("The amount of damage to inflict to the other object.")]
         private int damageToInflict;
         
         private void OnCollisionEnter2D(Collision2D collision)
         {
             var other = collision.collider;
-            var healthHandler = other.GetComponent<HealthHandler>();
 
-            if (healthHandler == null)
+            if (!this.filter.Evaluate(other.gameObject))
             {
                 return;
             }
+            
+            var healthHandler = other.GetComponent<HealthHandler>();
 
-            if (!other.CompareTag(this.tagFilter))
+            if (healthHandler == null)
             {
                 return;
             }

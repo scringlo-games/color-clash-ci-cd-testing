@@ -220,7 +220,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3cea533d3f4141975b6bbbd897f26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tagFilter: Player
+  filter:
+    operation: 0
+    entries:
+    - filter: {fileID: 11400000, guid: 85015e956afc0684684557676bd228ed, type: 2}
+      negate: 1
   damageToInflict: 15
 --- !u!1001 &377337252573765458
 PrefabInstance:
