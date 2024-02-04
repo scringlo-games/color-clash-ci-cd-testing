@@ -13,7 +13,6 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         private float Damage;
         private HealthHandler AffectedHealth;
         
-        
         /// <summary>
         /// Creates instance of DOTCondition
         /// </summary>

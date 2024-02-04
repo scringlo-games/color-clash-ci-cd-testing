@@ -1,7 +1,6 @@
 using ScringloGames.ColorClash.Runtime.Conditions;
 using ScringloGames.ColorClash.Runtime.Health;
 using ScringloGames.ColorClash.Runtime.PlayerCharacter;
-using UnityEditor.Build;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Shared
@@ -11,11 +10,18 @@ namespace ScringloGames.ColorClash.Runtime.Shared
     /// </summary>
     public abstract class ProjectileHitScript : MonoBehaviour
     {
+        private float pitchVariation = 0.2f;
         public void OnCollisionEnter2D(Collision2D other)
         {
+            
             //We don't want paint hurting the player.
             if (other.gameObject.GetComponent<PlayerInputHandler>() != null)
             {
+                if (this.TryGetComponent(out AudioSource audioSource))
+                {
+                    audioSource.pitch = (pitchVariation * Random.value) + 1.0f;
+                    audioSource.Play();
+                }
                 Destroy(this.gameObject);
                 return;
             }
