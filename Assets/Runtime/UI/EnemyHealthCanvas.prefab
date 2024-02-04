@@ -243,7 +243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: b3dcc1305703ac14286f9eb539c9ffb3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a123577db1f5e0843bb1ecef1a058961, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -263,6 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7680248059693119725}
   - component: {fileID: 1696952737144271157}
+  - component: {fileID: 6447610360427181104}
   m_Layer: 5
   m_Name: HealthIndicator
   m_TagString: Untagged
@@ -303,6 +304,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToFollow: {fileID: 0}
-  mainCamera: {fileID: 0}
   offsetX: 0
   offsetY: 0
+--- !u!114 &6447610360427181104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8595405575724375925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7267ece14ec3fd4183a511ec1be522d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthHandler: {fileID: 0}
+  healthImageComponent: {fileID: 3477587458781573657}
