@@ -328,8 +328,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5385962593210355355, guid: 1f7fac35aa06d1747afaec883bed1c87, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6447610360427181104, guid: 1f7fac35aa06d1747afaec883bed1c87, type: 3}
+      propertyPath: healthHandler
+      value: 
+      objectReference: {fileID: 7844843105748569433}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
