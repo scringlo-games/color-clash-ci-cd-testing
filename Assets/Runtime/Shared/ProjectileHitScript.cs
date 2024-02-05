@@ -10,12 +10,13 @@ namespace ScringloGames.ColorClash.Runtime.Shared
     /// </summary>
     public abstract class ProjectileHitScript : MonoBehaviour
     {
+        [SerializeField] private TempSpriteSpawner tempSpawner;
+        
         private float pitchVariation = 0.2f;
-        public void OnCollisionEnter2D(Collision2D other)
+        public void OnCollisionEnter2D(Collision2D collision)
         {
-            
             //We don't want paint hurting the player.
-            if (other.gameObject.GetComponent<PlayerInputHandler>() != null)
+            if (collision.gameObject.GetComponent<PlayerInputHandler>() != null)
             {
                 if (this.TryGetComponent(out AudioSource audioSource))
                 {
@@ -25,22 +26,29 @@ namespace ScringloGames.ColorClash.Runtime.Shared
                 Destroy(this.gameObject);
                 return;
             }
+            
             //If it can take effects or damage, projectiles should affect it.
-            if (other.gameObject.GetComponent<ConditionBank>() != null) 
+            if (collision.gameObject.GetComponent<ConditionBank>() != null) 
             {
-                this.ApplyProjectileEffects(other.gameObject);
+                this.ApplyProjectileEffects(collision.gameObject);
             }
 
-            if (other.gameObject.GetComponent<HealthHandler>() != null)
+            if (collision.gameObject.GetComponent<HealthHandler>() != null)
             {
-                this.IfHasHealth(other.gameObject);
+                this.IfHasHealth(collision.gameObject);
             }
             
-            if (other.gameObject.GetComponent<ProjectileHitScript>() == null)
+            if (collision.gameObject.GetComponent<ProjectileHitScript>() == null)
             {
                 Destroy(this.gameObject); 
             }
         }
+        
+        void OnDisable()
+        {
+            tempSpawner.CreateNewSprite(this.transform.position);
+        }
+        
         /// <summary>
         /// Override with projectile effects.
         /// </summary>
