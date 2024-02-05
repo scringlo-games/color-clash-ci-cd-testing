@@ -1,7 +1,6 @@
-using ScringloGames.ColorClash.Runtime.Conditions;
 using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime
+namespace ScringloGames.ColorClash.Runtime.Conditions
 {
     public class ApplySlowCondition : MonoBehaviour
     {

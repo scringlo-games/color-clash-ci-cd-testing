@@ -1,6 +1,4 @@
-﻿using System;
-using ScringloGames.ColorClash.Runtime.Health;
-using ScringloGames.ColorClash.Runtime.Shared;
+﻿using ScringloGames.ColorClash.Runtime.Health;
 using ScringloGames.ColorClash.Runtime.Shared.GameObjectFilters;
 using UnityEngine;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime
+namespace ScringloGames.ColorClash.Runtime.Shared
 {
     public class MoveToGameObject : MonoBehaviour
     {
@@ -12,16 +12,16 @@ namespace ScringloGames.ColorClash.Runtime
         // Start is called before the first frame update
         void Start()
         {
-            MoveToObj = GameObject.FindGameObjectWithTag(MoveToTag);
-            MyRigidBody = this.gameObject.GetComponent<Rigidbody2D>();
+            this.MoveToObj = GameObject.FindGameObjectWithTag(this.MoveToTag);
+            this.MyRigidBody = this.gameObject.GetComponent<Rigidbody2D>();
         }
 
         void FixedUpdate()
         { 
-            Vector2 moveDir = MoveToObj.transform.position - this.gameObject.transform.position;
+            Vector2 moveDir = this.MoveToObj.transform.position - this.gameObject.transform.position;
             moveDir = moveDir.normalized;
-            Vector2 MoveVelocity = moveDir * Velocity;
-            MyRigidBody.velocity = MoveVelocity;
+            Vector2 MoveVelocity = moveDir * this.Velocity;
+            this.MyRigidBody.velocity = MoveVelocity;
         }
 
     

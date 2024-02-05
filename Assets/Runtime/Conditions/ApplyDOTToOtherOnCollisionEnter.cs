@@ -1,5 +1,4 @@
-﻿using ScringloGames.ColorClash.Runtime.Shared.GameObjectFilters;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Conditions
 {

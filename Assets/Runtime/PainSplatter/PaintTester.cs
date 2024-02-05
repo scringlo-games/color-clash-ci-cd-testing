@@ -1,9 +1,7 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-namespace ScringloGames.ColorClash.Runtime
+namespace ScringloGames.ColorClash.Runtime.PainSplatter
 {
     public class PaintTester : MonoBehaviour
     {
@@ -16,7 +14,7 @@ namespace ScringloGames.ColorClash.Runtime
             this.mousePos = UnityEngine.Input.mousePosition;
             if (UnityEngine.Input.GetButtonDown("Fire1"))
             {
-                SpawnSprite?.Invoke(mainCamera.ScreenToWorldPoint(mousePos));
+                this.SpawnSprite?.Invoke(this.mainCamera.ScreenToWorldPoint(this.mousePos));
                 Debug.Log("test fired");
             }
         }

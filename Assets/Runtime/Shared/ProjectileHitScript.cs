@@ -1,5 +1,6 @@
 using ScringloGames.ColorClash.Runtime.Conditions;
 using ScringloGames.ColorClash.Runtime.Health;
+using ScringloGames.ColorClash.Runtime.PainSplatter;
 using ScringloGames.ColorClash.Runtime.PlayerCharacter;
 using UnityEngine;
 
