@@ -1,3 +1,4 @@
+using ScringloGames.ColorClash.Runtime.Health;
 using UnityEngine;
 
 namespace ScringloGames.ColorClash.Runtime.Conditions
@@ -11,6 +12,7 @@ namespace ScringloGames.ColorClash.Runtime.Conditions
         {
             Debug.Log($"applied condition onto: {bank.name}");
             // Sets the Duration of this condition to 2 seconds.
+            bank.GetComponent<HealthHandler>().TakeDamage(15);
             this.Duration = 2f;
 
             // Gets the position of the object that this ConditionBank is on
