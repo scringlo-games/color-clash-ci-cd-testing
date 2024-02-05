@@ -46,7 +46,7 @@ namespace ScringloGames.ColorClash.Runtime.Shared
             }
         }
         
-        void OnDestroy()
+        void OnDisable()
         {
             tempSpawner.CreateNewSprite(this.transform.position);
         }
