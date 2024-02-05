@@ -10,8 +10,6 @@ namespace ScringloGames.ColorClash.Runtime.Shared
     /// </summary>
     public abstract class ProjectileHitScript : MonoBehaviour
     {
-        [SerializeField] private new string tag;
-        [SerializeField] private int damage;
         [SerializeField] private TempSpriteSpawner tempSpawner;
         
         private float pitchVariation = 0.2f;
