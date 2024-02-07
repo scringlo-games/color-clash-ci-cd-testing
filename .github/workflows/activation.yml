@@ -19,3 +19,4 @@ jobs:
         with:
           # Version of Unity to use for building the project.
           unityVersion: 2022.3.17f1
+          imageVersion: 3.0.1
