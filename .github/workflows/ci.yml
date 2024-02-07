@@ -20,22 +20,15 @@ jobs:
           key: Library-${{ hashFiles('Assets/**', 'Packages/**', 'ProjectSettings/**') }}
           restore-keys: |
             Library-
-    
-      - name: Activate Unity license
-        uses: game-ci/unity-activate@v2.0.0
-        env:
-          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
       - name: Run tests
-        uses: game-ci/unity-test-runner@v4
+      # You may pin to the exact commit or the version.
+      # uses: game-ci/unity-test-runner@7c242f70d9c99b6968402c50c0d8dc8556943473
+        uses: game-ci/unity-test-runner@v4.1.1
         env:
           UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Build Unity project
         uses: game-ci/unity-builder@v4.1.4
