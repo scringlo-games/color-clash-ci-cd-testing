@@ -1,14 +1,14 @@
-name: Build
+name: Continuous Integration
 
 on:
   workflow_dispatch:
 
 jobs:
-  activation:
-    name: Activate Unity license
+  build:
+    name: Build & Test
     runs-on: ubuntu-latest
     steps:
-      - name: Unity - Activate
+      - name: Activate Unity license
       # You may pin to the exact commit or the version.
       # uses: game-ci/unity-activate@33cd3ea96f11f3a1ddcf8fa9d8d265d5ea81e240
         uses: game-ci/unity-activate@v2.0.0
@@ -17,7 +17,7 @@ jobs:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
 
-      - name: Unity - Builder
+      - name: Build Unity project
         # You may pin to the exact commit or the version.
         # uses: game-ci/unity-builder@2800d1440309b274ede329d41b75b1456291a34d
         uses: game-ci/unity-builder@v4.1.4
@@ -28,5 +28,9 @@ jobs:
         with:
           targetPlatform: StandaloneWindows
           versioning: Semantic
-
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Build
+          path: build
 
