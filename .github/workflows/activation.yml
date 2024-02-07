@@ -6,7 +6,7 @@ on:
 jobs:
   activation:
     name: Activate Unity license
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Unity - Activate
       # You may pin to the exact commit or the version.
